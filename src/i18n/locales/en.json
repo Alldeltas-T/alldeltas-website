@@ -1,0 +1,37 @@
+{
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "about": "About Us",
+    "contact": "Contact"
+  },
+  "hero": {
+    "label": "Alldeltas Consulting",
+    "title": "Think Safe",
+    "subtitle": "Engineering Excellence for Railway & Functional Safety",
+    "cta": "Get in Touch",
+    "headline": "Securing Critical",
+    "headlineGradient": "Railway Infrastructure",
+    "description": "Expert consulting in functional safety, cybersecurity, and RAMS management for the railway industry. Over 60 years of combined experience."
+  },
+  "solutions": {
+    "title": "Our Solutions",
+    "riskManagement": "Risk Management",
+    "verification": "Verification & Validation",
+    "functionalSafety": "Functional Safety",
+    "rams": "RAMS Management"
+  },
+  "about": {
+    "title": "About Alldeltas",
+    "description": "We provide expert consulting services in railway safety, reliability, and functional safety. Our team brings years of international experience to help you achieve the highest standards."
+  },
+  "team": {
+    "title": "Our Team"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message"
+  }
+}
