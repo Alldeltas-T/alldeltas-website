@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next'
 import Layout from './components/Layout/Layout'
 import ErrorBoundary from './components/common/ErrorBoundary'
 import ScrollToTop from './components/ui/ScrollToTop'
+import ShareButton from './components/ui/ShareButton'
+import ReadingProgressBar from './components/ui/ReadingProgressBar'
 import { SkeletonHero } from './components/ui/Skeleton'
 
 // Lazy load sections for better performance
@@ -16,6 +18,8 @@ const AboutUs     = lazy(() => import('./sections/AboutUs'))
 const Industries  = lazy(() => import('./sections/Industries'))
 const Team        = lazy(() => import('./sections/Team'))
 const Contact     = lazy(() => import('./sections/Contact'))
+const JoinUs      = lazy(() => import('./sections/JoinUs'))
+const Training    = lazy(() => import('./sections/Training'))
 
 // Pages
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
@@ -25,12 +29,14 @@ function HomePage() {
   return (
     <Suspense fallback={<SkeletonHero />}>
       <Hero />
-      <PartnersBar />
+      {/* <PartnersBar /> */}
       <Solutions />
       <CTADivider />
       <AboutUs />
       <Industries />
       <Team />
+      <JoinUs />
+      <Training />
       <Contact />
     </Suspense>
   )
@@ -49,6 +55,7 @@ function App() {
       <ErrorBoundary>
         <Router>
           <Layout>
+            <ReadingProgressBar />
             <Suspense fallback={<SkeletonHero />}>
               <Routes>
                 <Route path="/"                    element={<HomePage />} />
@@ -57,6 +64,7 @@ function App() {
               </Routes>
             </Suspense>
             <ScrollToTop />
+            <ShareButton />
           </Layout>
         </Router>
       </ErrorBoundary>

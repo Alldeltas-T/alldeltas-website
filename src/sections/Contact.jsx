@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from 'lucide-react'
 import Container from '../components/ui/Container'
-import SectionHeader from '../components/ui/SectionHeader'
 import Card from '../components/ui/Card'
 import Button from '../components/ui/Button'
 import Input from '../components/ui/Input'
@@ -21,40 +20,48 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // محاكاة إرسال النموذج
     setTimeout(() => {
       console.log('Form submitted:', formData)
-      alert('Thank you for your message! We will get back to you soon.')
+      alert(t('contact.success'))
       setFormData({ name: '', email: '', message: '' })
       setIsSubmitting(false)
     }, 1000)
   }
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'info@alldeltas.com', href: 'mailto:info@alldeltas.com' },
-    { icon: Phone, label: 'Phone', value: '+962 7 1234 5678', href: 'tel:+962712345678' },
-    { icon: MapPin, label: 'Address', value: 'Amman, Jordan', href: null },
-    { icon: Clock, label: 'Working Hours', value: 'Sun - Thu, 9:00 AM - 6:00 PM', href: null },
+    { icon: Mail, label: t('contact.info.title'), value: 'info@alldeltas.com', href: 'mailto:info@alldeltas.com' },
+    { icon: Phone, label: t('contact.info.phone'), value: '+962 7 1234 5678', href: 'tel:+962712345678' },
+    { icon: MapPin, label: t('contact.info.address'), value: 'Amman, Jordan', href: null },
+    { icon: Clock, label: t('contact.info.workingHours'), value: t('contact.info.workingHoursValue'), href: null },
   ]
 
   return (
-    <section id="contact" className="py-16 bg-[var(--bg-secondary)]">
+    <section id="contact" className="py-20 bg-[var(--bg-secondary)]">
       <Container>
-        <SectionHeader
-          badge="Get In Touch"
-          title={t('contact.title')}
-          description="Have a question or need consulting services? We're here to help."
-        />
+        <div className={`text-center mb-14 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-px bg-gradient-to-r from-transparent to-[var(--color-primary)]/30"></div>
+            <span className="text-[var(--color-primary)]/60 text-xs uppercase tracking-[0.3em] font-semibold">
+              {t('contact.badge')}
+            </span>
+            <div className="w-10 h-px bg-gradient-to-l from-transparent to-[var(--color-primary)]/30"></div>
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
+            {t('contact.title')}
+          </h2>
+          <p className="text-[var(--text-secondary)] max-w-2xl mx-auto text-lg">
+            {t('contact.description')}
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* معلومات الاتصال */}
           <div className={`space-y-6 ${isVisible ? 'animate-fadeInLeft' : 'opacity-0'}`}>
             <Card className="p-6">
               <h3 className="text-xl font-bold text-[var(--text-primary)] mb-6 flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
                   <MessageSquare size={18} className="text-[var(--color-primary)]" />
                 </div>
-                Contact Information
+                {t('contact.info.title')}
               </h3>
               <div className="space-y-5">
                 {contactInfo.map((item) => {
@@ -84,12 +91,11 @@ const Contact = () => {
               <div className="w-16 h-16 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mx-auto mb-4">
                 <MapPin size={24} className="text-[var(--color-primary)]" />
               </div>
-              <p className="text-[var(--text-primary)] font-bold">Visit Our Office</p>
-              <p className="text-[var(--text-secondary)] text-sm mt-1">Amman, Jordan</p>
+              <p className="text-[var(--text-primary)] font-bold">{t('contact.visitOffice')}</p>
+              <p className="text-[var(--text-secondary)] text-sm mt-1">{t('contact.location')}</p>
             </Card>
           </div>
 
-          {/* نموذج الاتصال */}
           <Card className={`p-6 md:p-8 ${isVisible ? 'animate-fadeInRight' : 'opacity-0'}`}>
             <h3 className="text-xl font-bold text-[var(--text-primary)] mb-6 flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center">
@@ -100,29 +106,29 @@ const Contact = () => {
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <Input
-                label="Full Name"
+                label={t('contact.name')}
                 type="text"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                placeholder="Your name"
+                placeholder={t('contact.namePlaceholder')}
               />
               
               <Input
-                label="Email Address"
+                label={t('contact.email')}
                 type="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                placeholder="your@email.com"
+                placeholder={t('contact.emailPlaceholder')}
               />
               
               <Textarea
-                label="Message"
+                label={t('contact.message')}
                 required
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Tell us about your needs..."
+                placeholder={t('contact.messagePlaceholder')}
                 rows={5}
               />
               
@@ -134,7 +140,7 @@ const Contact = () => {
                 disabled={isSubmitting}
                 icon={Send}
               >
-                {isSubmitting ? 'Sending...' : t('contact.send')}
+                {isSubmitting ? t('contact.sending') : t('contact.send')}
               </Button>
             </form>
           </Card>

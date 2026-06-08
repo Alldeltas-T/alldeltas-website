@@ -6,9 +6,6 @@ import {
   Cpu,
   Lock,
   TrendingUp,
-  Zap,
-  Eye,
-  Server,
 } from "lucide-react";
 
 const Hero = () => {
@@ -26,11 +23,49 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-tr from-[#1E4A76]/20 via-[#2A5F8A]/10 to-[#3A7CA5]/20"></div>
       </div>
 
-      {/* Soft Floating Blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-72 h-72 rounded-full bg-[#1E4A76]/5 animate-soft-float"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-[#2A5F8A]/5 animate-soft-float" style={{ animationDelay: '5s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#3A7CA5]/3 animate-soft-pulse"></div>
+      {/* Background Triangles with slow drift - مثلثات متحركة خفيفة */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.04]">
+        {/* مثلث 1 - أعلى اليمين */}
+        <div className="absolute top-10 right-10 w-48 h-48 animate-slow-drift-1">
+          <svg viewBox="0 0 100 86" className="w-full h-full">
+            <polygon points="50,5 5,80 95,80" fill="#1E4A76" />
+          </svg>
+        </div>
+        
+        {/* مثلث 2 - أسفل اليسار */}
+        <div className="absolute bottom-20 left-10 w-40 h-40 animate-slow-drift-2">
+          <svg viewBox="0 0 100 86" className="w-full h-full">
+            <polygon points="50,5 5,80 95,80" fill="#2A5F8A" />
+          </svg>
+        </div>
+        
+        {/* مثلث 3 - منتصف اليمين */}
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 animate-slow-drift-3">
+          <svg viewBox="0 0 100 86" className="w-full h-full">
+            <polygon points="50,5 5,80 95,80" fill="#3A7CA5" />
+          </svg>
+        </div>
+        
+        {/* مثلث 4 - منتصف اليسار */}
+        <div className="absolute bottom-1/3 left-1/4 w-32 h-32 animate-slow-drift-1">
+          <svg viewBox="0 0 100 86" className="w-full h-full">
+            <polygon points="50,5 5,80 95,80" fill="#4A8AB5" />
+          </svg>
+        </div>
+        
+        {/* مثلث 5 - أعلى اليسار */}
+        <div className="absolute top-1/4 left-10 w-28 h-28 animate-slow-drift-2">
+          <svg viewBox="0 0 100 86" className="w-full h-full">
+            <polygon points="50,5 5,80 95,80" fill="#1E4A76" />
+          </svg>
+        </div>
+        
+        {/* مثلث 6 - أسفل اليمين */}
+        <div className="absolute bottom-10 right-1/3 w-36 h-36 animate-slow-drift-3">
+          <svg viewBox="0 0 100 86" className="w-full h-full">
+            <polygon points="50,5 5,80 95,80" fill="#2A5F8A" />
+          </svg>
+        </div>
       </div>
 
       {/* Subtle Dot Pattern */}
@@ -67,17 +102,16 @@ const Hero = () => {
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] tracking-tight mb-5 text-[var(--text-primary)]">
-              {t('hero.headline')}
-              <span className="block bg-gradient-to-r from-[#1E4A76] via-[#2A5F8A] to-[#3A7CA5] bg-clip-text text-transparent mt-1">
-                {t('hero.headlineGradient')}
+            {/* Headline - Your Partner بحجم أكبر */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-5 text-[var(--text-primary)]">
+              <span className="bg-gradient-to-r from-[#1E4A76] via-[#2A5F8A] to-[#3A7CA5] bg-clip-text text-transparent">
+                Your Partner
               </span>
             </h1>
 
-            {/* Description */}
+            {/* Description - النص الجديد */}
             <p className="text-base md:text-lg text-[var(--text-secondary)] leading-relaxed mb-6 max-w-lg">
-              {t('hero.description')}
+              Specialized consulting in functional safety, RAMS reliability, maintenance, and safety management, and systems integration for the railway and automotive sectors. Over 20 years of combined experience.
             </p>
 
             {/* Features */}
@@ -100,106 +134,20 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* CTAs */}
+            {/* CTAs - تم إزالة hero.solutionsBtn */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="group bg-gradient-to-r from-[#1E4A76] to-[#2A5F8A] text-white px-10 py-3.5 rounded-md font-semibold text-md flex items-center justify-center gap-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 hover:from-[#2A5F8A] hover:to-[#3A7CA5]">
                 {t('hero.cta')}
                 <ArrowRight size="16" className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="border border-[#1E4A76]/30 text-[var(--color-primary)] px-8 py-3.5 rounded-md font-medium text-md transition-all duration-300 hover:bg-[#1E4A76]/5 hover:border-[#1E4A76]/50">
-                {t('hero.solutionsBtn') || 'Our Solutions'}
-              </button>
             </div>
           </div>
 
-          {/* RIGHT SIDE - Visual Elements مع مثلث Delta خلف الصورة */}
+          {/* RIGHT SIDE - Visual Elements */}
           <div className={`relative flex flex-col justify-center ${isVisible ? "animate-fadeInRight" : "opacity-0"}`}>
             
-            {/* === مثلث Delta عملاق خلف الصورة === */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-              <div className="relative w-full h-full">
-                <svg 
-                  viewBox="0 0 500 450" 
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[190%] h-[130%]"
-                >
-                  <defs>
-                    <linearGradient id="deltaGiant" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#1E4A76" stopOpacity="0.2" />
-                      <stop offset="50%" stopColor="#2A5F8A" stopOpacity="0.12" />
-                      <stop offset="100%" stopColor="#3A7CA5" stopOpacity="0.06" />
-                    </linearGradient>
-                    <linearGradient id="strokeGiant" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#1E4A76" stopOpacity="0.5" />
-                      <stop offset="50%" stopColor="#2A5F8A" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#3A7CA5" stopOpacity="0.15" />
-                    </linearGradient>
-                    <filter id="glow">
-                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                      <feMerge>
-                        <feMergeNode in="coloredBlur"/>
-                        <feMergeNode in="SourceGraphic"/>
-                      </feMerge>
-                    </filter>
-                  </defs>
-                  
-                  {/* المثلث العملاق */}
-                  <polygon 
-                    points="250,30 30,420 470,420" 
-                    fill="url(#deltaGiant)" 
-                    stroke="url(#strokeGiant)" 
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    filter="url(#glow)"
-                  />
-                  
-                  {/* الخط الوسيط */}
-                  <line x1="250" y1="30" x2="250" y2="420" stroke="url(#strokeGiant)" strokeWidth="1" strokeOpacity="0.15" strokeDasharray="8,6" />
-                  
-                  {/* الخط الأفقي */}
-                  <line x1="140" y1="225" x2="360" y2="225" stroke="url(#strokeGiant)" strokeWidth="1" strokeOpacity="0.1" strokeDasharray="8,6" />
-                </svg>
-              </div>
-            </div>
-
-            {/* === أيقونات على الرؤوس الخارجية للمثلث العملاق === */}
-            
-            {/* الرأس العلوي (أعلى المثلث) - أيقونة الرعد */}
-            <div 
-              className="absolute w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-[#1E4A76]/30 to-[#2A5F8A]/20 backdrop-blur-lg rounded-2xl border border-blue-950 flex items-center justify-center shadow-xl z-20"
-              style={{
-                bottom: '104%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-              }}
-            >
-              <Zap size="24" className="text-[#295D88]" />
-            </div>
-            
-            {/* الرأس الأيسر (الزاوية اليسرى السفلية) - أيقونة القفل */}
-            <div 
-              className="absolute w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-[#1E4A76]/30 to-[#2A5F8A]/20 backdrop-blur-md rounded-2xl border border-[#10B981]/40 flex items-center justify-center shadow-xl z-20"
-              style={{
-                top: '102%',
-                left: '3%',
-              }}
-            >
-              <Lock size="24" className="text-[#10B981]" />
-            </div>
-            
-            {/* الرأس الأيمن (الزاوية اليمنى السفلية) - أيقونة العين */}
-            <div 
-              className="absolute w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-[#1E4A76]/30 to-[#2A5F8A]/20 backdrop-blur-lg rounded-2xl border border-[#8B5CF6]/40 flex items-center justify-center shadow-2xs z-20"
-              style={{
-                top: '102%',
-                right: '3%',
-              }}
-            >
-              <Eye size="24" className="text-[#8B5CF6]" />
-            </div>
-
             {/* Main Image */}
-            <div className="relative bg-[#1E4A76]/5 backdrop-blur-sm rounded-xl border border-[#1E4A76]/15 shadow-xl overflow-hidden  z-10">
+            <div className="relative bg-[#1E4A76]/5 backdrop-blur-sm rounded-xl border border-[#1E4A76]/15 shadow-xl overflow-hidden z-10">
               <div className="relative">
                 <img
                   src="/hero.png"
@@ -210,33 +158,8 @@ const Hero = () => {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1E4A76]/30 via-transparent to-transparent z-10"></div>
-                <div className="absolute bottom-4 left-8 z-20">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-<span className="text-white text-xs font-medium flex items-center gap-1.5">
-  <span>Δ Alldeltas Consulting</span>
-  <span className="text-white/50">|</span>
-  <span className="flex items-center gap-0.5">
-    <Lock size={15} className="text-[#10B981]" />
-    <span>Protect</span>
-  </span>
-  <span>+</span>
-  <span className="flex items-center gap-0.5">
-    <Eye size={15} className="text-[#8B5CF6]" />
-    <span>Monitor</span>
-  </span>
-  <span>+</span>
-  <span className="flex items-center gap-0.5">
-    <Zap size={15} className="text-[#F59E0B]" />
-    <span>Respond Fast</span>
-  </span>
-</span>
-                  </div>
-                </div>
               </div>
             </div>
-
-
 
             {/* Tech UI lines */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }}>
@@ -248,7 +171,33 @@ const Hero = () => {
         </div>
       </div>
 
-
+      {/* Custom animations for moving triangles */}
+      <style jsx>{`
+        @keyframes slow-drift-1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(15px, -10px) rotate(3deg); }
+          66% { transform: translate(-8px, 8px) rotate(-2deg); }
+        }
+        @keyframes slow-drift-2 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(-12px, -8px) rotate(-3deg); }
+          66% { transform: translate(10px, 6px) rotate(2deg); }
+        }
+        @keyframes slow-drift-3 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(8px, 12px) rotate(2deg); }
+          66% { transform: translate(-6px, -10px) rotate(-3deg); }
+        }
+        .animate-slow-drift-1 {
+          animation: slow-drift-1 20s ease-in-out infinite;
+        }
+        .animate-slow-drift-2 {
+          animation: slow-drift-2 25s ease-in-out infinite;
+        }
+        .animate-slow-drift-3 {
+          animation: slow-drift-3 22s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };

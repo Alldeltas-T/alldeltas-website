@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { 
   Shield, CheckCircle, Lock, BarChart3, ArrowRight, 
   Server, Zap, TrendingUp, Award, 
-  ExternalLink, Cpu, CircuitBoard 
+  ExternalLink, CircuitBoard 
 } from 'lucide-react'
 import Container from '../components/ui/Container'
 import SectionHeader from '../components/ui/SectionHeader'
@@ -23,7 +23,7 @@ const Solutions = () => {
       key: 'riskManagement',
       slug: 'risk-management',
       icon: BarChart3,
-      title: 'Risk Management',
+      title: t('solutions.riskManagement'),
       description: 'Identify, analyze, and mitigate risks effectively with advanced methodologies.',
       color: '#1E4A76',
       lightColor: '#1E4A76',
@@ -34,7 +34,7 @@ const Solutions = () => {
       key: 'verification',
       slug: 'verification-validation',
       icon: CheckCircle,
-      title: 'Verification & Validation',
+      title: t('solutions.verification'),
       description: 'Ensure compliance with industry standards through rigorous testing protocols.',
       color: '#2A5F8A',
       lightColor: '#2A5F8A',
@@ -45,7 +45,7 @@ const Solutions = () => {
       key: 'functionalSafety',
       slug: 'functional-safety',
       icon: Shield,
-      title: 'Functional Safety',
+      title: t('solutions.functionalSafety'),
       description: 'Implement safety-critical systems that protect lives and assets.',
       color: '#3A7CA5',
       lightColor: '#3A7CA5',
@@ -56,7 +56,7 @@ const Solutions = () => {
       key: 'rams',
       slug: 'rams-management',
       icon: TrendingUp,
-      title: 'RAMS Management',
+      title: t('solutions.rams'),
       description: 'Optimize reliability, availability, maintainability, and safety performance.',
       color: '#4A8AB5',
       lightColor: '#4A8AB5',
@@ -67,7 +67,7 @@ const Solutions = () => {
       key: 'cybersecurity',
       slug: 'cybersecurity',
       icon: Server,
-      title: 'Cybersecurity',
+      title: t('solutions.cybersecurity'),
       description: 'Protect critical infrastructure from evolving cyber threats.',
       color: '#5A9AC5',
       lightColor: '#5A9AC5',
@@ -78,7 +78,7 @@ const Solutions = () => {
       key: 'software',
       slug: 'software',
       icon: CircuitBoard,
-      title: 'Software Development',
+      title: t('solutions.software'),
       description: 'Custom software solutions for railway safety and monitoring systems.',
       color: '#6AB0D5',
       lightColor: '#6AB0D5',
@@ -90,7 +90,7 @@ const Solutions = () => {
   return (
     <section id="solutions" className="py-24 bg-[var(--bg-secondary)]">
       <Container>
-        {/* عنوان القسم */}
+        {/* عنوان القسم - مترجم */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center gap-2 mb-4">
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-[var(--color-primary)]/40"></div>
@@ -103,11 +103,11 @@ const Solutions = () => {
             {t('solutions.title')}
           </h2>
           <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto leading-relaxed">
-            Comprehensive consulting services tailored to your railway safety and security needs
+            {t('solutions.subtitle')}
           </p>
         </div>
 
-        {/* شبكة الحلول - تصميم نظيف */}
+        {/* شبكة الحلول */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {solutions.map((solution, index) => {
             const Icon = solution.icon
@@ -118,62 +118,35 @@ const Solutions = () => {
                 className={`group block ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 80}ms` }}
               >
-                {/* بطاقة احترافية نظيفة */}
                 <div className="h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-light)] overflow-hidden transition-all duration-300 hover:border-[var(--color-primary)]/20 hover:shadow-md">
-                  
-                  {/* شريط علوي رفيع */}
-                  <div 
-                    className="w-full h-0.5"
-                    style={{ backgroundColor: solution.color }}
-                  ></div>
-                  
+                  <div className="w-full h-0.5" style={{ backgroundColor: solution.color }}></div>
                   <div className="p-6">
-                    {/* أيقونة */}
                     <div className="mb-5">
-                      <div 
-                        className="w-12 h-12 rounded-xl flex items-center justify-center"
-                        style={{ backgroundColor: `${solution.color}10` }}
-                      >
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ backgroundColor: `${solution.color}10` }}>
                         <Icon size={22} style={{ color: solution.color }} strokeWidth={1.5} />
                       </div>
                     </div>
-                    
-                    {/* عنوان الخدمة */}
                     <h3 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
                       {solution.title}
                     </h3>
-                    
-                    {/* وصف الخدمة */}
                     <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
                       {solution.description}
                     </p>
-                    
-                    {/* المقياس / الشهادة */}
                     <div className="mb-4">
-                      <span 
-                        className="text-[11px] font-medium px-2 py-0.5 rounded-full"
-                        style={{ backgroundColor: `${solution.color}8`, color: solution.color }}
-                      >
+                      <span className="text-[11px] font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: `${solution.color}8`, color: solution.color }}>
                         {solution.metric}
                       </span>
                     </div>
-                    
-                    {/* قائمة الميزات */}
                     <div className="space-y-1.5 mb-5">
                       {solution.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-xs text-[var(--text-secondary)]">
-                          <div 
-                            className="w-1 h-1 rounded-full"
-                            style={{ backgroundColor: solution.color }}
-                          ></div>
+                          <div className="w-1 h-1 rounded-full" style={{ backgroundColor: solution.color }}></div>
                           <span>{feature}</span>
                         </div>
                       ))}
                     </div>
-                    
-                    {/* رابط Learn More */}
                     <div className="flex items-center gap-1.5 text-sm font-medium text-[var(--color-primary)] group-hover:gap-2 transition-all duration-300">
-                      <span>Learn More</span>
+                      <span>{t('solutions.learnMore')}</span>
                       <ArrowRight size={14} className="transition-all duration-300" />
                     </div>
                   </div>
@@ -183,7 +156,7 @@ const Solutions = () => {
           })}
         </div>
 
-        {/* زر استكشاف الخدمات */}
+        {/* زر استكشاف الخدمات - مترجم */}
         <div className={`text-center mt-16 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`} style={{ animationDelay: '600ms' }}>
           <Button 
             variant="outline" 
@@ -192,7 +165,7 @@ const Solutions = () => {
             icon={ExternalLink}
             className="px-8 py-3 text-sm"
           >
-            Explore All Services
+            {t('solutions.exploreAll')}
           </Button>
         </div>
       </Container>

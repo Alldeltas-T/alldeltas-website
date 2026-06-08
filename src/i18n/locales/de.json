@@ -1,0 +1,165 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "solutions": "Lösungen",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "industries": "Branchen",
+    "team": "Unser Team"
+  },
+  "hero": {
+    "label": "Alldeltas Consulting",
+    "title": "Sicher Denken",
+    "headline": "Sicherung der kritischen",
+    "headlineGradient": "Eisenbahninfrastruktur",
+    "description": "Fachberatung für funktionale Sicherheit, Cybersicherheit und RAMS-Management in der Eisenbahnindustrie. Über 60 Jahre kombinierte Erfahrung.",
+    "cta": "Kontaktieren Sie uns",
+    "solutionsBtn": "Unsere Lösungen",
+    "subtitle": "Technische Exzellenz für Eisenbahn und funktionale Sicherheit",
+    "status": "In Betrieb · 24/7 Überwachung"
+  },
+  "solutions": {
+    "title": "Unsere Lösungen",
+    "subtitle": "Umfassende Beratungsdienstleistungen, zugeschnitten auf Ihre Anforderungen an Eisenbahnsicherheit und -schutz",
+    "riskManagement": "Risikomanagement",
+    "verification": "Verifizierung & Validierung",
+    "functionalSafety": "Funktionale Sicherheit",
+    "rams": "RAMS-Management",
+    "cybersecurity": "Cybersicherheit",
+    "training": "Schulung & Zertifizierung",
+    "software": "Softwareentwicklung",
+    "learnMore": "Mehr erfahren",
+    "exploreAll": "Alle Dienstleistungen"
+  },
+  "about": {
+    "title": "Über Alldeltas",
+    "description": "Wir bieten fachkundige Beratungsdienstleistungen in den Bereichen Eisenbahnsicherheit, Zuverlässigkeit und funktionale Sicherheit. Unser Team verfügt über langjährige internationale Erfahrung, um Ihnen zu helfen, die höchsten Standards zu erreichen.",
+    "whoWeAre": "Wer wir sind",
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "projects": "Abgeschlossene Projekte",
+      "consultants": "Fachberater",
+      "satisfaction": "Kundenzufriedenheit"
+    },
+    "certifications": {
+      "iso": "ISO 27001 zertifiziert",
+      "isoDesc": "Informationssicherheitsmanagement nach internationalen Standards",
+      "cenelec": "CENELEC-konform",
+      "cenelecDesc": "Expertise in EN 50126/8/9 für Eisenbahn",
+      "global": "Globale Expertise",
+      "globalDesc": "Über 60 Jahre kombinierte Erfahrung in internationalen Projekten"
+    }
+  },
+  "team": {
+    "title": "Unser Team",
+    "subtitle": "Ein herausragendes Team von Branchenexperten, das sich Ihrem Erfolg widmet",
+    "theTeam": "Das Team",
+    "directors": "Direktoren",
+    "seniors": "Senior Berater",
+    "joinTeam": "Treten Sie unserem Team bei"
+  },
+  "industries": {
+    "title": "Branchenexpertise",
+    "subtitle": "Branchenspezifische Expertise",
+    "description": "Maßgeschneiderte Lösungen für kritische Infrastrukturen in mehreren Branchen",
+    "badge": "Branchen, die wir bedienen",
+    "viewAll": "Alle Branchen anzeigen",
+    "rail": "Bahn & Transport",
+    "energy": "Energie & Versorgung",
+    "logistics": "Logistik & Lieferkette",
+    "software": "Softwareentwicklung",
+    "manufacturing": "Industrielle Fertigung",
+    "automotive": "Automobilindustrie"
+  },
+  "partners": {
+    "title": "Vertrauenswürdige Partner"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "badge": "Nehmen Sie Kontakt auf",
+    "description": "Haben Sie eine Frage oder benötigen Sie Beratungsdienstleistungen? Wir sind hier, um zu helfen.",
+    "name": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefonnummer",
+    "company": "Unternehmen",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "success": "Vielen Dank! Wir werden uns bald bei Ihnen melden.",
+    "namePlaceholder": "Ihr vollständiger Name",
+    "emailPlaceholder": "ihre@email.com",
+    "messagePlaceholder": "Teilen Sie uns Ihre Anforderungen mit...",
+    "info": {
+      "title": "Kontaktinformationen",
+      "address": "Adresse",
+      "phone": "Telefon",
+      "workingHours": "Arbeitszeiten",
+      "workingHoursValue": "Sonntag - Donnerstag, 9:00 - 18:00 Uhr"
+    },
+    "visitOffice": "Besuchen Sie unser Büro",
+    "location": "Amman, Jordanien"
+  },
+  "cta": {
+    "badge": "Begrenztes Angebot",
+    "title": "Bereit, Ihre",
+    "titleHighlight": "Eisenbahninfrastruktur zu sichern?",
+    "description": "Vereinbaren Sie ein kostenloses Beratungsgespräch mit unseren Experten und erfahren Sie, wie wir Ihnen helfen können, Compliance und operative Exzellenz zu erreichen.",
+    "primary": "Kostenlose Beratung anfordern",
+    "secondary": "Mehr erfahren",
+    "iso": "ISO 27001 zertifiziert",
+    "cenelec": "CENELEC-konform",
+    "support": "24/7 Support"
+  },
+  "footer": {
+    "description": "Technische Exzellenz für Eisenbahn und funktionale Sicherheit. Über 60 Jahre kombinierte Erfahrung.",
+    "quickLinks": "Quick Links",
+    "services": "Unsere Dienstleistungen",
+    "contactInfo": "Kontaktinformationen",
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "cookies": "Cookie-Richtlinie",
+    "links": {
+      "home": "Startseite",
+      "solutions": "Lösungen",
+      "about": "Über uns",
+      "team": "Unser Team",
+      "contact": "Kontakt"
+    },
+    "serviceLinks": {
+      "riskManagement": "Risikomanagement",
+      "verification": "Verifizierung & Validierung",
+      "functionalSafety": "Funktionale Sicherheit",
+      "rams": "RAMS-Management",
+      "cybersecurity": "Cybersicherheitsberatung"
+    }
+  },
+  "serviceDetail": {
+    "specialized": "Spezialisierte Dienstleistung",
+    "overview": "Übersicht",
+    "keyFeatures": "Hauptmerkmale",
+    "benefits": "Vorteile",
+    "standards": "Standards & Konformität",
+    "standardsNote": "Alle unsere Dienstleistungen entsprechen den neuesten Versionen dieser internationalen Standards.",
+    "needService": "Benötigen Sie diese Dienstleistung?",
+    "needServiceDesc": "Kontaktieren Sie unsere Experten, um Ihre spezifischen Anforderungen zu besprechen und ein kostenloses Angebot zu erhalten.",
+    "quickContact": "Schnellkontakt",
+    "relatedServices": "Verwandte Dienstleistungen",
+    "backToSolutions": "Zurück zu den Lösungen",
+    "notFound": "Dienstleistung nicht gefunden",
+    "notFoundDesc": "Die gesuchte Dienstleistung ist nicht verfügbar.",
+    "viewAll": "Alle Lösungen anzeigen"
+  },
+  "errors": {
+    "pageNotFound": "Seite nicht gefunden",
+    "pageNotFoundDesc": "Die von Ihnen gesuchte Seite existiert nicht oder wurde verschoben.",
+    "backHome": "Zurück zur Startseite",
+    "somethingWrong": "Etwas ist schief gelaufen",
+    "tryAgain": "Erneut versuchen"
+  },
+  "common": {
+    "learnMore": "Mehr erfahren",
+    "contactUs": "Kontaktieren Sie uns",
+    "readMore": "Weiterlesen"
+  }
+}

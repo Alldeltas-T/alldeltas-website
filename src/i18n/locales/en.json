@@ -3,35 +3,163 @@
     "home": "Home",
     "solutions": "Solutions",
     "about": "About Us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "industries": "Industries",
+    "team": "Our Team"
   },
   "hero": {
     "label": "Alldeltas Consulting",
     "title": "Think Safe",
-    "subtitle": "Engineering Excellence for Railway & Functional Safety",
-    "cta": "Get in Touch",
     "headline": "Securing Critical",
     "headlineGradient": "Railway Infrastructure",
-    "description": "Expert consulting in functional safety, cybersecurity, and RAMS management for the railway industry. Over 60 years of combined experience."
+    "description": "Expert consulting in functional safety, cybersecurity, and RAMS management for the railway industry. Over 60 years of combined experience.",
+    "cta": "Get in Touch",
+    "solutionsBtn": "Our Solutions",
+    "subtitle": "Engineering Excellence for Railway & Functional Safety",
+    "status": "Operational · 24/7 Monitoring"
   },
   "solutions": {
     "title": "Our Solutions",
+    "subtitle": "Comprehensive consulting services tailored to your railway safety and security needs",
     "riskManagement": "Risk Management",
     "verification": "Verification & Validation",
     "functionalSafety": "Functional Safety",
-    "rams": "RAMS Management"
+    "rams": "RAMS Management",
+    "cybersecurity": "Cybersecurity",
+    "training": "Training & Certification",
+    "software": "Software Development",
+    "learnMore": "Learn More",
+    "exploreAll": "Explore All Services"
   },
   "about": {
     "title": "About Alldeltas",
-    "description": "We provide expert consulting services in railway safety, reliability, and functional safety. Our team brings years of international experience to help you achieve the highest standards."
+    "description": "We provide expert consulting services in railway safety, reliability, and functional safety. Our team brings years of international experience to help you achieve the highest standards.",
+    "whoWeAre": "Who We Are",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "consultants": "Expert Consultants",
+      "satisfaction": "Client Satisfaction"
+    },
+    "certifications": {
+      "iso": "ISO 27001 Certified",
+      "isoDesc": "Information security management compliant with international standards",
+      "cenelec": "CENELEC Compliant",
+      "cenelecDesc": "EN 50126/8/9 standards expertise for railway safety",
+      "global": "Global Expertise",
+      "globalDesc": "60+ years combined experience across international projects"
+    }
   },
   "team": {
-    "title": "Our Team"
+    "title": "Our Team",
+    "subtitle": "A distinguished team of industry experts committed to your success",
+    "theTeam": "THE TEAM",
+    "directors": "Directors",
+    "seniors": "Senior Consultants",
+    "joinTeam": "Join Our Team"
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Sector-Specific Expertise",
+    "description": "Tailored solutions for critical infrastructure across multiple industries",
+    "badge": "Industries We Serve",
+    "viewAll": "View All Industries",
+    "rail": "Rail & Transport",
+    "energy": "Energy & Utilities",
+    "logistics": "Logistics & Supply Chain",
+    "software": "Software Development",
+    "manufacturing": "Industrial Manufacturing",
+    "automotive": "Automotive"
+  },
+  "partners": {
+    "title": "Trusted Partners"
   },
   "contact": {
     "title": "Contact Us",
-    "email": "Email",
+    "badge": "Get In Touch",
+    "description": "Have a question or need consulting services? We're here to help.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "company": "Company",
     "message": "Message",
-    "send": "Send Message"
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Thank you for your message! We will get back to you soon.",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "your@email.com",
+    "messagePlaceholder": "Tell us about your needs...",
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "workingHours": "Working Hours",
+      "workingHoursValue": "Sun - Thu, 9:00 AM - 6:00 PM"
+    },
+    "visitOffice": "Visit Our Office",
+    "location": "Amman, Jordan"
+  },
+  "cta": {
+    "badge": "Limited Offer",
+    "title": "Ready to Secure Your",
+    "titleHighlight": "Railway Infrastructure?",
+    "description": "Get a free consultation with our experts and discover how we can help you achieve compliance and operational excellence.",
+    "primary": "Get Free Consultation",
+    "secondary": "Learn More",
+    "iso": "ISO 27001 Certified",
+    "cenelec": "CENELEC Compliant",
+    "support": "24/7 Support"
+  },
+  "footer": {
+    "description": "Engineering excellence for railway and functional safety. Over 60 years of combined experience.",
+    "quickLinks": "Quick Links",
+    "services": "Our Services",
+    "contactInfo": "Contact Info",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "links": {
+      "home": "Home",
+      "solutions": "Solutions",
+      "about": "About Us",
+      "team": "Our Team",
+      "contact": "Contact"
+    },
+    "serviceLinks": {
+      "riskManagement": "Risk Management",
+      "verification": "Verification & Validation",
+      "functionalSafety": "Functional Safety",
+      "rams": "RAMS Management",
+      "cybersecurity": "Cybersecurity Consulting"
+    }
+  },
+  "serviceDetail": {
+    "specialized": "Specialized Service",
+    "overview": "Overview",
+    "keyFeatures": "Key Features",
+    "benefits": "Benefits & Advantages",
+    "standards": "Standards & Compliance",
+    "standardsNote": "All our services comply with the latest versions of these international standards.",
+    "needService": "Need this service?",
+    "needServiceDesc": "Contact our experts to discuss your specific requirements and get a free quote.",
+    "quickContact": "Quick Contact",
+    "relatedServices": "Related Services",
+    "backToSolutions": "Back to Solutions",
+    "notFound": "Service not found",
+    "notFoundDesc": "The service you are looking for is not available.",
+    "viewAll": "View All Solutions"
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDesc": "The page you are looking for does not exist or has been moved.",
+    "backHome": "Back to Home",
+    "somethingWrong": "Something went wrong",
+    "tryAgain": "Try Again"
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "readMore": "Read More"
   }
 }

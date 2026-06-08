@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Shield, Users, Briefcase, TrendingUp, Award, Clock, Globe } from 'lucide-react'
+import Container from '../components/ui/Container'
+import SectionHeader from '../components/ui/SectionHeader'
+import Card from '../components/ui/Card'
 
 const AboutUs = () => {
   const { t } = useTranslation()
@@ -11,29 +14,20 @@ const AboutUs = () => {
   }, [])
 
   const stats = [
-    { value: '10+', label: 'Years Experience', icon: Clock, description: 'Industry leadership' },
-    { value: '50+', label: 'Projects Completed', icon: Briefcase, description: 'Global delivery' },
-    { value: '20+', label: 'Expert Consultants', icon: Users, description: 'Specialized experts' },
-    { value: '98%', label: 'Client Satisfaction', icon: Award, description: 'Excellence proven' },
+    { value: '10+', label: t('about.stats.experience'), icon: Clock, description: 'Industry leadership' },
+    { value: '50+', label: t('about.stats.projects'), icon: Briefcase, description: 'Global delivery' },
+    { value: '20+', label: t('about.stats.consultants'), icon: Users, description: 'Specialized experts' },
+    { value: '98%', label: t('about.stats.satisfaction'), icon: Award, description: 'Excellence proven' },
   ]
 
   return (
-<section id="about" className="py-20 bg-[var(--bg-secondary)]">      <div className="container mx-auto px-6 lg:px-12">
-        <div className={`text-center mb-14 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
-          <div className="inline-flex items-center gap-3 mb-4">
-            <div className="w-10 h-px bg-gradient-to-r from-transparent to-[var(--color-primary)]/30"></div>
-            <span className="text-[var(--text-secondary)]/60 text-xs uppercase tracking-[0.3em] font-semibold">
-              Who We Are
-            </span>
-            <div className="w-10 h-px bg-gradient-to-l from-transparent to-[var(--color-primary)]/30"></div>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
-            {t('about.title')}
-          </h2>
-          <p className="text-[var(--text-secondary)] max-w-3xl mx-auto text-lg leading-relaxed">
-            {t('about.description')}
-          </p>
-        </div>
+    <section id="about" className="py-20 bg-[var(--bg-secondary)]">
+      <Container>
+        <SectionHeader
+          badge={t('about.whoWeAre')}
+          title={t('about.title')}
+          description={t('about.description')}
+        />
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-5xl mx-auto mb-16">
           {stats.map((stat, index) => {
@@ -61,8 +55,8 @@ const AboutUs = () => {
               <Shield size={20} className="text-[var(--color-primary)]" />
             </div>
             <div>
-              <h4 className="font-bold text-[var(--text-primary)] mb-1">ISO 27001 Certified</h4>
-              <p className="text-[var(--text-secondary)] text-sm">Information security management compliant with international standards</p>
+              <h4 className="font-bold text-[var(--text-primary)] mb-1">{t('about.certifications.iso')}</h4>
+              <p className="text-[var(--text-secondary)] text-sm">{t('about.certifications.isoDesc')}</p>
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-xl bg-[var(--bg-card)]/50 backdrop-blur-sm hover:bg-[var(--bg-card)] transition-all duration-300 border border-transparent hover:border-[var(--color-primary)]/10">
@@ -70,8 +64,8 @@ const AboutUs = () => {
               <TrendingUp size={20} className="text-[var(--color-primary)]" />
             </div>
             <div>
-              <h4 className="font-bold text-[var(--text-primary)] mb-1">CENELEC Compliant</h4>
-              <p className="text-[var(--text-secondary)] text-sm">EN 50126/8/9 standards expertise for railway safety</p>
+              <h4 className="font-bold text-[var(--text-primary)] mb-1">{t('about.certifications.cenelec')}</h4>
+              <p className="text-[var(--text-secondary)] text-sm">{t('about.certifications.cenelecDesc')}</p>
             </div>
           </div>
           <div className="flex items-start gap-4 p-5 rounded-xl bg-[var(--bg-card)]/50 backdrop-blur-sm hover:bg-[var(--bg-card)] transition-all duration-300 border border-transparent hover:border-[var(--color-primary)]/10">
@@ -79,12 +73,12 @@ const AboutUs = () => {
               <Globe size={20} className="text-[var(--color-primary)]" />
             </div>
             <div>
-              <h4 className="font-bold text-[var(--text-primary)] mb-1">Global Expertise</h4>
-              <p className="text-[var(--text-secondary)] text-sm">60+ years combined experience across international projects</p>
+              <h4 className="font-bold text-[var(--text-primary)] mb-1">{t('about.certifications.global')}</h4>
+              <p className="text-[var(--text-secondary)] text-sm">{t('about.certifications.globalDesc')}</p>
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

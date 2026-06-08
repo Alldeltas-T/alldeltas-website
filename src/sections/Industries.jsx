@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Train, Zap, Truck, Building2, ArrowRight, Factory, Monitor, Car, Plane } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { Train, Zap, Truck, Building2, ArrowRight, Factory, Monitor, Car } from 'lucide-react'
+import Container from '../components/ui/Container'
+import SectionHeader from '../components/ui/SectionHeader'
 
 const Industries = () => {
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -10,42 +14,42 @@ const Industries = () => {
 
   const industries = [
     {
-      name: 'Rail & Transport',
+      name: t('industries.rail'),
       icon: Train,
       description: 'Safety-critical systems for high-speed rail, metros, and freight',
       color: '#1E4A76',
       features: ['EN 50126/8/9', 'CENELEC', 'RAMS']
     },
     {
-      name: 'Energy & Utilities',
+      name: t('industries.energy'),
       icon: Zap,
       description: 'Cybersecurity and automation for power plants and grids',
       color: '#2A5F8A',
       features: ['NIS2', 'IEC 62443', 'SCADA']
     },
     {
-      name: 'Logistics & Supply Chain',
+      name: t('industries.logistics'),
       icon: Truck,
       description: 'Digital transformation and security for warehouse operations',
       color: '#3A7CA5',
       features: ['IoT Security', 'Real-time Tracking', 'Automation']
     },
     {
-      name: 'Software Development',
+      name: t('industries.software'),
       icon: Monitor,
       description: 'Custom software solutions for safety and monitoring systems',
       color: '#5A9AC5',
       features: ['Safety Software', 'Embedded Systems', 'Cloud Solutions']
     },
     {
-      name: 'Industrial Manufacturing',
+      name: t('industries.manufacturing'),
       icon: Factory,
       description: 'OT security and functional safety for production lines',
       color: '#4A8AB5',
       features: ['Machinery Directive', 'Safety PLC', 'Risk Assessment']
     },
     {
-      name: 'Automotive',
+      name: t('industries.automotive'),
       icon: Car,
       description: 'Functional safety and cybersecurity for vehicle systems',
       color: '#6AB0D5',
@@ -55,20 +59,20 @@ const Industries = () => {
 
   return (
     <section id="industries" className="py-20 bg-[var(--bg-primary)]">
-      <div className="container mx-auto px-6 lg:px-12">
+      <Container>
         <div className={`text-center mb-14 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-10 h-px bg-gradient-to-r from-transparent to-[var(--color-primary)]/30"></div>
-            <span className="text-[var(--text-secondary)]/60 text-xs uppercase tracking-[0.3em] font-semibold">
-              Industries We Serve
+            <span className="text-[var(--color-primary)]/60 text-xs uppercase tracking-[0.3em] font-semibold">
+              {t('industries.badge')}
             </span>
             <div className="w-10 h-px bg-gradient-to-l from-transparent to-[var(--color-primary)]/30"></div>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
-            Sector-Specific Expertise
+            {t('industries.title')}
           </h2>
           <p className="text-[var(--text-secondary)] max-w-2xl mx-auto text-lg">
-            Tailored solutions for critical infrastructure across multiple industries
+            {t('industries.description')}
           </p>
         </div>
 
@@ -121,11 +125,11 @@ const Industries = () => {
         
         <div className={`text-center mt-12 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
           <button className="inline-flex items-center gap-2 text-[var(--color-primary)] font-medium hover:gap-3 transition-all duration-300">
-            View All Industries
+            {t('industries.viewAll')}
             <ArrowRight size={16} />
           </button>
         </div>
-      </div>
+      </Container>
     </section>
   )
 }
