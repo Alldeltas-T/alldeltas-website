@@ -1,13 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Mail, Phone, MapPin, ArrowUp } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react' // قمنا بحذف ArrowUp لأننا لن نحتاجها هنا
 
 const Footer = () => {
   const { t } = useTranslation()
   
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  
 
   return (
     <footer className="bg-[#0A2B4E] text-white pt-16 pb-8 mt-auto">
@@ -98,13 +96,7 @@ const Footer = () => {
         </div>
       </div>
       
-      <button 
-        onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-[#1E4A76] text-white p-3 rounded-full shadow-lg hover:bg-[#2A5F8A] transition-all duration-300 hover:scale-110 group z-50"
-        aria-label="Scroll to top"
-      >
-        <ArrowUp size={20} className="group-hover:-translate-y-0.5 transition-transform" />
-      </button>
+      
     </footer>
   )
 }

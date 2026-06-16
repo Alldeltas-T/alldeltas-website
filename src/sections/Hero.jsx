@@ -142,7 +142,7 @@ const Hero = () => {
               </button>
             </div>
           </div>
-
+{/* CHNGE CLASS NAME TO SHOW THE WHOLE PIC BUT BIG AND CUTED ''''w-full h-72 md:h-112 object-cover relative z-10'''' */}
           {/* RIGHT SIDE - Visual Elements */}
           <div className={`relative flex flex-col justify-center ${isVisible ? "animate-fadeInRight" : "opacity-0"}`}>
             
@@ -152,7 +152,7 @@ const Hero = () => {
                 <img
                   src="/hero.png"
                   alt="High-speed railway infrastructure"
-                  className="w-full h-72 md:h-112 object-cover relative z-10"
+                  className=" w-full h-full object-cover block relative z-10 rounded-xl"   
                   onError={(e) => {
                     e.target.src = "https://images.unsplash.com/photo-1473341304170-971d5b5ddbe4?w=600&h=450&fit=crop";
                   }}

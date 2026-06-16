@@ -18,7 +18,6 @@ const Header = () => {
       const sections = ["home", "solutions", "about", "join", "contact"];
       const scrollPosition = window.scrollY + 100;
 
-      // التحقق من أن المستخدم في أعلى الصفحة
       if (window.scrollY < 50) {
         setActiveSection("home");
         return;
@@ -50,7 +49,6 @@ const Header = () => {
     setActiveSection("home");
   };
 
-  // إغلاق القوائم عند النقر خارجها
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (isLangOpen && !event.target.closest(".language-dropdown")) {
@@ -64,7 +62,6 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isLangOpen, isSolutionsOpen]);
 
-  // عناصر الـ Dropdown للحلول
   const solutionsDropdownItems = [
     { label: t("solutions.riskManagement"), href: "#solutions" },
     { label: t("solutions.verification"), href: "#solutions" },
@@ -79,7 +76,6 @@ const Header = () => {
     { key: "solutions", label: t("nav.solutions"), hasDropdown: true, href: "#solutions" },
     { key: "about", label: t("nav.about"), href: "#about" },
     { key: "join", label: t("nav.join"), href: "#join" },
-    { key: "contact", label: t("nav.contact"), href: "#contact" },
   ];
 
   return (
@@ -208,6 +204,7 @@ const Header = () => {
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
+            {/* زر Contact Us الأساسي منسق بالجانب الأيمن */}
             <a
               href="#contact"
               className="hidden md:block bg-white text-[#1E4A76] px-9 py-3.5 rounded-md font-semibold text-[16px] hover:bg-gray-100 transition-all duration-300 hover:shadow-md"
@@ -215,39 +212,19 @@ const Header = () => {
               {t("nav.contact")}
             </a>
 
-            {/* Dark Mode Toggle Button */}
+            {/* Dark Mode Toggle */}
             <button
               onClick={toggle}
               className="p-2 text-white/80 hover:text-white rounded-lg hover:bg-white/10 transition-all duration-200"
               aria-label="Toggle dark mode"
             >
               {isDark ? (
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               ) : (
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               )}
             </button>
@@ -259,12 +236,7 @@ const Header = () => {
                 className="flex items-center gap-1 px-2 py-1.5 text-white/80 hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/10"
                 aria-label="Change language"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
                   <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" strokeWidth="1.5" />
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" strokeWidth="1.5" />
@@ -272,67 +244,20 @@ const Header = () => {
                 <span className="text-sm font-medium">
                   {i18n.language === "en" ? "EN" : i18n.language === "ar" ? "AR" : "DE"}
                 </span>
-                <svg
-                  className={`w-3 h-3 transition-transform duration-200 ${
-                    isLangOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className={`w-3 h-3 transition-transform duration-200 ${isLangOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
               {isLangOpen && (
                 <div className="absolute right-0 mt-2 w-36 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden z-50 border border-gray-200 dark:border-gray-700">
-                  <button
-                    onClick={() => { i18n.changeLanguage("en"); setIsLangOpen(false); }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
-                      i18n.language === "en"
-                        ? "bg-gray-100 dark:bg-gray-700 text-[#1E4A76] dark:text-[#5A9AC5] font-semibold"
-                        : "text-gray-700 dark:text-gray-300"
-                    }`}
-                  >
-                    🇬🇧 English
-                  </button>
-                  <button
-                    onClick={() => { i18n.changeLanguage("ar"); setIsLangOpen(false); }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
-                      i18n.language === "ar"
-                        ? "bg-gray-100 dark:bg-gray-700 text-[#1E4A76] dark:text-[#5A9AC5] font-semibold"
-                        : "text-gray-700 dark:text-gray-300"
-                    }`}
-                  >
-                    🇸🇦 العربية
-                  </button>
-                  <button
-                    onClick={() => { i18n.changeLanguage("de"); setIsLangOpen(false); }}
-                    className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${
-                      i18n.language === "de"
-                        ? "bg-gray-100 dark:bg-gray-700 text-[#1E4A76] dark:text-[#5A9AC5] font-semibold"
-                        : "text-gray-700 dark:text-gray-300"
-                    }`}
-                  >
-                    🇩🇪 Deutsch
-                  </button>
+                  <button onClick={() => { i18n.changeLanguage("en"); setIsLangOpen(false); }} className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${i18n.language === "en" ? "bg-gray-100 dark:bg-gray-700 text-[#1E4A76] font-semibold" : "text-gray-700 dark:text-gray-300"}`}>🇬🇧 English</button>
+                  <button onClick={() => { i18n.changeLanguage("ar"); setIsLangOpen(false); }} className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${i18n.language === "ar" ? "bg-gray-100 dark:bg-gray-700 text-[#1E4A76] font-semibold" : "text-gray-700 dark:text-gray-300"}`}>🇸🇦 العربية</button>
+                  <button onClick={() => { i18n.changeLanguage("de"); setIsLangOpen(false); }} className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors ${i18n.language === "de" ? "bg-gray-100 dark:bg-gray-700 text-[#1E4A76] font-semibold" : "text-gray-700 dark:text-gray-300"}`}>🇩🇪 Deutsch</button>
                 </div>
               )}
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-1.5 text-white hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
           </div>
         </div>
 
@@ -348,9 +273,7 @@ const Header = () => {
                   setIsMenuOpen(false);
                 }}
                 className={`block py-2 transition-colors text-sm ${
-                  activeSection === item.key
-                    ? "text-white font-medium"
-                    : "text-white/70 hover:text-white"
+                  activeSection === item.key ? "text-white font-medium" : "text-white/70 hover:text-white"
                 }`}
               >
                 {item.label}

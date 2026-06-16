@@ -3,7 +3,8 @@
     "home": "Home",
     "solutions": "Solutions",
     "about": "About Us",
-    "contact": "Contact",
+    "join": "Join Us",
+    "contact": "Login",
     "industries": "Industries",
     "team": "Our Team"
   },
@@ -12,7 +13,7 @@
     "title": "Think Safe",
     "headline": "Securing Critical",
     "headlineGradient": "Railway Infrastructure",
-    "description": "Expert consulting in functional safety, cybersecurity, and RAMS management for the railway industry. Over 60 years of combined experience.",
+    "description": "Expert consulting in functional safety, RAM, System Integration for Railway and Automotive Over 20 years of combined experience.",
     "cta": "Get in Touch",
     "solutionsBtn": "Our Solutions",
     "subtitle": "Engineering Excellence for Railway & Functional Safety",
@@ -74,6 +75,17 @@
   "partners": {
     "title": "Trusted Partners"
   },
+
+  "join": {
+  "badge": "Join Our Team",
+  "title": "Build the Future of Mobility",
+  "subtitle": "We are always looking for passionate consultants and engineers to join our growing global team.",
+  "openPositions": "Open Positions",
+  "openPositionsDesc": "Explore current career opportunities at Alldeltas Consulting.",
+  "dontSeePosition": "Don't see a matching position?",
+  "dontSeePositionDesc": "We are always looking for exceptional talent. Send us your resume and we will keep you in mind for future openings.",
+  "sendResume": "Send Resume"
+},
   "contact": {
     "title": "Contact Us",
     "badge": "Get In Touch",

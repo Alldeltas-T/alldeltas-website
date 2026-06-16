@@ -43,8 +43,8 @@ const Team = () => {
       {
         id: 3,
         name: 'Aisha Yousef',
-        role: 'Technical Director',
-        specialty: 'Software Architecture & DevOps',
+        role: 'HR',
+        specialty: 'Human Resourses',
         image: aishaImage,
         email: 'aisha.yousef@alldeltas.com',
         linkedin: '#',

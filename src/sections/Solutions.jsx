@@ -20,16 +20,16 @@ const Solutions = () => {
 
   const solutions = [
     {
-      key: 'riskManagement',
-      slug: 'risk-management',
-      icon: BarChart3,
-      title: t('solutions.riskManagement'),
-      description: 'Identify, analyze, and mitigate risks effectively with advanced methodologies.',
-      color: '#1E4A76',
-      lightColor: '#1E4A76',
-      features: ['Risk Assessment', 'Mitigation Strategies', 'Compliance'],
-      metric: '98% Success Rate'
-    },
+      key: 'functionalSafety',
+      slug: 'functional-safety',
+      icon: Shield,
+      title: t('solutions.functionalSafety'),
+      description: 'Implement safety-critical systems that protect lives and assets.',
+      color: '#3A7CA5',
+      lightColor: '#3A7CA5',
+      features: ['Safety Cases', 'Hazard Analysis', 'SIL Assessment'],
+      metric: 'IEC 61508'
+    },  
     {
       key: 'verification',
       slug: 'verification-validation',
@@ -40,20 +40,9 @@ const Solutions = () => {
       lightColor: '#2A5F8A',
       features: ['Validation', 'Certification', 'Auditing'],
       metric: 'ISO 17025'
-    },
+    },  
     {
-      key: 'functionalSafety',
-      slug: 'functional-safety',
-      icon: Shield,
-      title: t('solutions.functionalSafety'),
-      description: 'Implement safety-critical systems that protect lives and assets.',
-      color: '#3A7CA5',
-      lightColor: '#3A7CA5',
-      features: ['Safety Cases', 'Hazard Analysis', 'SIL Assessment'],
-      metric: 'IEC 61508'
-    },
-    {
-      key: 'rams',
+      key: 'ram',
       slug: 'rams-management',
       icon: TrendingUp,
       title: t('solutions.rams'),
@@ -63,28 +52,21 @@ const Solutions = () => {
       features: ['RAMS Analysis', 'Lifecycle Management', 'Performance'],
       metric: 'EN 50126'
     },
+
     {
-      key: 'cybersecurity',
-      slug: 'cybersecurity',
-      icon: Server,
-      title: t('solutions.cybersecurity'),
-      description: 'Protect critical infrastructure from evolving cyber threats.',
-      color: '#5A9AC5',
-      lightColor: '#5A9AC5',
-      features: ['Risk Assessment', 'Penetration Testing', 'NIS2 Compliance'],
-      metric: 'IEC 62443'
+      key: 'riskManagement',
+      slug: 'risk-management',
+      icon: BarChart3,
+      title: t('solutions.riskManagement'),
+      description: 'Identify, analyze, and mitigate risks effectively with advanced methodologies.',
+      color: '#1E4A76',
+      lightColor: '#1E4A76',
+      features: ['Risk Assessment', 'Mitigation Strategies', 'Compliance'],
+      metric: '98% Success Rate'
     },
-    {
-      key: 'software',
-      slug: 'software',
-      icon: CircuitBoard,
-      title: t('solutions.software'),
-      description: 'Custom software solutions for railway safety and monitoring systems.',
-      color: '#6AB0D5',
-      lightColor: '#6AB0D5',
-      features: ['Safety Systems', 'Analytics Dashboards', 'Integration'],
-      metric: 'Agile Certified'
-    }
+
+
+
   ]
 
   return (

@@ -21,26 +21,14 @@ const Industries = () => {
       features: ['EN 50126/8/9', 'CENELEC', 'RAMS']
     },
     {
-      name: t('industries.energy'),
-      icon: Zap,
-      description: 'Cybersecurity and automation for power plants and grids',
-      color: '#2A5F8A',
-      features: ['NIS2', 'IEC 62443', 'SCADA']
+      name: t('industries.automotive'),
+      icon: Car,
+      description: 'Functional safety for vehicle systems',
+      color: '#6AB0D5',
+      features: ['ISO 26262', 'Automotive SPICE', 'Cybersecurity']
     },
-    {
-      name: t('industries.logistics'),
-      icon: Truck,
-      description: 'Digital transformation and security for warehouse operations',
-      color: '#3A7CA5',
-      features: ['IoT Security', 'Real-time Tracking', 'Automation']
-    },
-    {
-      name: t('industries.software'),
-      icon: Monitor,
-      description: 'Custom software solutions for safety and monitoring systems',
-      color: '#5A9AC5',
-      features: ['Safety Software', 'Embedded Systems', 'Cloud Solutions']
-    },
+
+
     {
       name: t('industries.manufacturing'),
       icon: Factory,
@@ -48,13 +36,7 @@ const Industries = () => {
       color: '#4A8AB5',
       features: ['Machinery Directive', 'Safety PLC', 'Risk Assessment']
     },
-    {
-      name: t('industries.automotive'),
-      icon: Car,
-      description: 'Functional safety and cybersecurity for vehicle systems',
-      color: '#6AB0D5',
-      features: ['ISO 26262', 'Automotive SPICE', 'Cybersecurity']
-    }
+
   ]
 
   return (
