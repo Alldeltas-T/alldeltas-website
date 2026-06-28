@@ -2,30 +2,30 @@ name: Deploy React Site Automatically
 on:
   push:
     branches:
-      - main  # 🛑 تأكدي هنا: إذا كان اسم الفرع عندك master غيري كلمة main إلى master
+      - main  
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    # 1. جلب الملفات من GitHub للسيرفر الافتراضي
+    
     - name: Checkout code
       uses: actions/checkout@v3
-    # 2. تنصيب بيئة Node.js لعمل الـ Build
+   
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: 18
-    # 3. تنصيب المكتبات وطبخ المشروع (Build) لتحويله لملفات ويب ثابتة
+    
     - name: Install dependencies and Build
       run: |
         npm install
         npm run build
-    # 4. أخذ مجلد المخرجات (dist) ورفعه فوراً إلى Hostinger
+    
     - name: Deploy to Hostinger via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.HOSTINGER_SERVER }}
         username: ${{ secrets.HOSTINGER_USERNAME }}
         password: ${{ secrets.HOSTINGER_PASSWORD }}
-        local-dir: ./dist/            # هذا المجلد الذي ينتج بعد الـ Build في جهازكِ
-        server-dir: ./public_html/     # المجلد الرئيسي الذي أنشأتِهِ في الاستضافة
+        local-dir: ./dist/           
+        server-dir: ./public_html/    
