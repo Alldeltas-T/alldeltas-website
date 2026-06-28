@@ -3,6 +3,8 @@
     "home": "الرئيسية",
     "solutions": "الحلول",
     "about": "من نحن",
+    "joinus": "انضم إلينا",
+    "login": "تسجيل الدخول",
     "contact": "اتصل بنا",
     "industries": "القطاعات",
     "team": "فريقنا"
@@ -161,5 +163,23 @@
     "learnMore": "اعرف أكثر",
     "contactUs": "اتصل بنا",
     "readMore": "اقرأ المزيد"
-  }
+  },
+  "auth": {
+  "loginTitle": "مرحباً بك مجدداً",
+  "registerTitle": "إنشاء حساب جديد",
+  "loginSubtitle": "قم بتسجيل الدخول للوصول إلى لوحة التحكم الآمنة الخاصة بك",
+  "registerSubtitle": "انضم إلى شبكة Alldeltas الاستشارية اليوم",
+  "nameLabel": "الاسم الكامل",
+  "emailLabel": "البريد الإلكتروني",
+  "passwordLabel": "كلمة المرور",
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+  "forgotPassword": "هل نسيتها؟",
+  "loginBtn": "تسجيل الدخول",
+  "registerBtn": "ابدأ الآن",
+  "noAccount": "ليس لديك حساب؟",
+  "haveAccount": "لديك حساب بالفعل؟",
+  "switchToRegister": "أنشئ حساباً",
+  "switchToLogin": "سجل دخولك",
+  "backToHome": "العودة للصفحة الرئيسية"
+}
 }

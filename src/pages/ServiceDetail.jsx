@@ -40,13 +40,13 @@ const ServiceDetail = () => {
           <p className="text-[var(--text-secondary)] mb-6">
             {isAr ? 'الخدمة التي تبحث عنها غير متاحة' : 'The service you are looking for is not available.'}
           </p>
-          <Link
-            to="/#solutions"
-            className="inline-flex items-center gap-2 bg-[#1E4A76] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#2A5F8A] transition-colors"
-          >
-            {isAr ? <ArrowRight size={16} /> : <ArrowLeft size={16} />}
-            {isAr ? 'عرض جميع الحلول' : 'View All Solutions'}
-          </Link>
+<Link
+  to="/solutions" // 👈 الآن سيوجه المستخدم إلى صفحة الحلول الكاملة التي أنشأناها تواً
+  className="inline-flex items-center gap-2 bg-[#1E4A76] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#2A5F8A] transition-colors"
+>
+  {isAr ? <ArrowRight size={16} /> : <ArrowLeft size={16} />}
+  {isAr ? 'عرض جميع الحلول' : 'View All Solutions'}
+</Link>
         </div>
       </div>
     )
@@ -96,7 +96,7 @@ const ServiceDetail = () => {
                   {isAr ? 'الرئيسية' : 'Home'}
                 </Link>
                 {isAr ? <ChevronRight size={12} className="rotate-180" /> : <ChevronRight size={12} />}
-                <Link to="/#solutions" className="hover:text-[var(--color-primary)] transition-colors">
+                <Link to="/solutions" className="hover:text-[var(--color-primary)] transition-colors">
                   {isAr ? 'الحلول' : 'Solutions'}
                 </Link>
                 {isAr ? <ChevronRight size={12} className="rotate-180" /> : <ChevronRight size={12} />}
@@ -332,7 +332,7 @@ const ServiceDetail = () => {
               {/* Back link */}
               <div className={`${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`} style={{ animationDelay: '450ms' }}>
                 <Link
-                  to="/#solutions"
+                  to="/solutions"
                   onClick={(e) => {
                     e.preventDefault()
                     window.history.back()

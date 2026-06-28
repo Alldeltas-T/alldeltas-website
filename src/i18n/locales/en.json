@@ -3,8 +3,8 @@
     "home": "Home",
     "solutions": "Solutions",
     "about": "About Us",
-    "join": "Join Us",
-    "contact": "Login",
+    "joinus": "Join Us",
+    "login": "Login",
     "industries": "Industries",
     "team": "Our Team"
   },
@@ -173,5 +173,24 @@
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
     "readMore": "Read More"
-  }
+  },
+  "auth": {
+  "loginTitle": "Welcome Back",
+  "registerTitle": "Create New Account",
+  "loginSubtitle": "Log in to access your secure dashboard",
+  "registerSubtitle": "Join Alldeltas advisory network today",
+  "nameLabel": "Full Name",
+  "emailLabel": "Email Address",
+  "passwordLabel": "Password",
+  "confirmPasswordLabel": "Confirm Password",
+  "forgotPassword": "Forgot it?",
+  "loginBtn": "Log In",
+  "registerBtn": "Get Started",
+  "noAccount": "Don't have an account?",
+  "haveAccount": "Already have an account?",
+  "switchToRegister": "Create an account",
+  "switchToLogin": "Log in",
+  "backToHome": "Back to Home"
 }
+}
+

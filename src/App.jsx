@@ -8,9 +8,12 @@ import ScrollToTop from './components/ui/ScrollToTop'
 import ShareButton from './components/ui/ShareButton'
 import ReadingProgressBar from './components/ui/ReadingProgressBar'
 import { SkeletonHero } from './components/ui/Skeleton'
+import Auth from './pages/Auth' //
+import SolutionsPage from './pages/SolutionsPage'
+
 
 // Lazy load sections for better performance
-const Hero        = lazy(() => import('./sections/Hero'))
+const Hero         = lazy(() => import('./sections/Hero'))
 const PartnersBar = lazy(() => import('./sections/PartnersBar'))
 const Solutions   = lazy(() => import('./sections/Solutions'))
 const CTADivider  = lazy(() => import('./sections/CTADivider'))
@@ -18,12 +21,14 @@ const AboutUs     = lazy(() => import('./sections/AboutUs'))
 const Industries  = lazy(() => import('./sections/Industries'))
 const Team        = lazy(() => import('./sections/Team'))
 const Contact     = lazy(() => import('./sections/Contact'))
-const JoinUs      = lazy(() => import('./sections/JoinUs'))
+
 const Training    = lazy(() => import('./sections/Training'))
 
 // Pages
 const ServiceDetail = lazy(() => import('./pages/ServiceDetail'))
 const NotFound      = lazy(() => import('./pages/NotFound'))
+const JoinUs        = lazy(() => import('./pages/JoinUs'))
+
 
 function HomePage() {
   return (
@@ -35,7 +40,7 @@ function HomePage() {
       <AboutUs />
       <Industries />
       <Team />
-      <JoinUs />
+
       <Training />
       <Contact />
     </Suspense>
@@ -58,9 +63,22 @@ function App() {
             <ReadingProgressBar />
             <Suspense fallback={<SkeletonHero />}>
               <Routes>
+                {/* المسار الرئيسي للموقع */}
                 <Route path="/"                    element={<HomePage />} />
+                
+                {/* مسار صفحة تسجيل الدخول والإنشاء الجديدة */}
+                <Route path="/auth"                element={<Auth />} />
+                
+                {/* مسار تفاصيل الخدمات */}
                 <Route path="/services/:serviceId" element={<ServiceDetail />} />
+                {/* مسار تفاصيل الخدمات */}
+                <Route path="/solutions"           element={<SolutionsPage />} />
+                
+                {/* أي مسار غير معروف يوجه لصفحة الخطأ 404 */}
                 <Route path="*"                    element={<NotFound />} />
+                {/*مسار انضم الينا */}
+                <Route path="/joinus"                element={<JoinUs />} />
+                
               </Routes>
             </Suspense>
             <ScrollToTop />

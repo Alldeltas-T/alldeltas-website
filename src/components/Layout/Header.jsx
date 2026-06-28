@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDarkMode } from "../../hooks/useDarkMode";
+import { useLocation, useNavigate } from "react-router-dom"; 
 
 const Header = () => {
   const { t, i18n } = useTranslation();
@@ -11,7 +12,13 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("home");
   const { isDark, toggle } = useDarkMode();
 
+  const location = useLocation(); 
+  const navigate = useNavigate(); 
+  const isHomePage = location.pathname === "/"; 
+
   useEffect(() => {
+    if (!isHomePage) return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
 
@@ -41,12 +48,25 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHomePage]); 
 
-  const scrollToTop = (e) => {
+  const handleHomeClick = (e) => {
     if (e) e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setActiveSection("home");
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setActiveSection("home");
+    } else {
+      navigate("/"); 
+    }
+  };
+
+  const handleNavClick = (e, targetHref, sectionKey) => {
+    if (!isHomePage) {
+      e.preventDefault();
+      navigate(`/${targetHref}`); 
+    } else {
+      setActiveSection(sectionKey);
+    }
   };
 
   useEffect(() => {
@@ -63,25 +83,27 @@ const Header = () => {
   }, [isLangOpen, isSolutionsOpen]);
 
   const solutionsDropdownItems = [
-    { label: t("solutions.riskManagement"), href: "#solutions" },
-    { label: t("solutions.verification"), href: "#solutions" },
-    { label: t("solutions.functionalSafety"), href: "#solutions" },
-    { label: t("solutions.rams"), href: "#solutions" },
-    { label: t("solutions.cybersecurity"), href: "#solutions" },
-    { label: t("solutions.software"), href: "#solutions" },
+{ label: t("solutions.functionalSafety") || "Functional Safety", href: "/services/functional-safety" },
+{ label: t("solutions.verification") || "Verification", href: "/services/verification" },
+{ label: t("solutions.rams") || "RAMS", href: "/services/rams" },
+{ label: t("solutions.riskManagement") || "Risk Management", href: "/services/risk-management" },
+
+  
+
+
   ];
 
   const navItems = [
-    { key: "home", label: t("nav.home"), onClick: scrollToTop, href: "#" },
-    { key: "solutions", label: t("nav.solutions"), hasDropdown: true, href: "#solutions" },
-    { key: "about", label: t("nav.about"), href: "#about" },
-    { key: "join", label: t("nav.join"), href: "#join" },
+    { key: "home", label: t("nav.home") || "Home", onClick: handleHomeClick, href: "#" },
+    { key: "solutions", label: t("nav.solutions") || "Solutions", hasDropdown: true, href: "/solutions", isExternalPage: true },
+    { key: "about", label: t("nav.about") || "About Us", href: "#about" },
+    { key: "joinus", label: t("nav.joinus") || "Join Us", href: "/joinus", isExternalPage: true }
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || !isHomePage
           ? "bg-gradient-to-r from-[#1E4A76] via-[#2A5F8A] to-[#3A7CA5] shadow-lg py-2"
           : "bg-gradient-to-r from-[#1E4A76] via-[#2A5F8A] to-[#3A7CA5] py-3"
       }`}
@@ -91,7 +113,7 @@ const Header = () => {
           {/* Logo Section */}
           <div
             className="flex items-center gap-2.5 group cursor-pointer"
-            onClick={scrollToTop}
+            onClick={handleHomeClick} 
           >
             <div className="relative">
               <div className="w-9 h-9 md:w-17.5 md:h-16 rounded-full bg-white shadow-md flex items-center justify-center group-hover:scale-105 transition-all duration-300">
@@ -116,101 +138,113 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navItems.map((item) => (
-              <div key={item.key} className="relative">
-                {item.hasDropdown ? (
-                  <>
-                    <button
-                      onMouseEnter={() => setIsSolutionsOpen(true)}
-                      onMouseLeave={() => setIsSolutionsOpen(false)}
-                      onClick={() => {
-                        window.location.href = item.href;
-                        setActiveSection(item.key);
-                      }}
-                      className={`relative text-[19px] font-medium transition-colors duration-300 py-1 group ${
-                        activeSection === item.key
-                          ? "text-white"
-                          : "text-white/80 hover:text-white"
-                      }`}
-                    >
-                      {item.label}
-                      <svg
-                        className="inline-block ml-1 w-3 h-3 transition-transform duration-200"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                      <span
-                        className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
-                          activeSection === item.key
-                            ? "w-full"
-                            : "w-0 group-hover:w-full"
-                        }`}
-                      ></span>
-                    </button>
+         
+         {/* Desktop Navigation */}
+<div className="hidden md:flex items-center gap-6 lg:gap-8">
+  {navItems.map((item) => (
+    <div key={item.key} className="relative solutions-dropdown"> {/* أضفنا الكلاس هنا لحمايته من handleClickOutside */}
+      {item.hasDropdown ? (
+        <>
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // يمنع انغلاق القائمة فوراً عند الضغط
+              setIsSolutionsOpen(!isSolutionsOpen); // يفتح ويغلق بثبات عند الكبس
+            }}
+            className={`relative text-[19px] font-medium transition-colors duration-300 py-1 group flex items-center gap-1 ${
+              activeSection === item.key || (!isHomePage && item.key === "solutions")
+                ? "text-white"
+                : "text-white/80 hover:text-white"
+            }`}
+          >
+            {item.label}
+            <svg
+              className={`w-3 h-3 transition-transform duration-200 ${isSolutionsOpen ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+            <span
+              className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
+                activeSection === item.key
+                  ? "w-full"
+                  : "w-0 group-hover:w-full"
+              }`}
+            ></span>
+          </button>
 
-                    {/* Dropdown Menu */}
-                    {isSolutionsOpen && (
-                      <div
-                        className="solutions-dropdown absolute top-full left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden z-50 border border-gray-200 dark:border-gray-700"
-                        onMouseEnter={() => setIsSolutionsOpen(true)}
-                        onMouseLeave={() => setIsSolutionsOpen(false)}
-                      >
-                        {solutionsDropdownItems.map((sol, idx) => (
-                          <a
-                            key={idx}
-                            href={sol.href}
-                            className="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-[#1E4A76] dark:hover:text-[#5A9AC5] transition-colors"
-                            onClick={() => setActiveSection("solutions")}
-                          >
-                            {sol.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <a
-                    href={item.href}
-                    onClick={item.onClick}
-                    className={`relative text-[19px] font-medium transition-colors duration-300 py-1 group ${
-                      activeSection === item.key
-                        ? "text-white"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                  >
-                    {item.label}
-                    <span
-                      className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
-                        activeSection === item.key
-                          ? "w-full"
-                          : "w-0 group-hover:w-full"
-                      }`}
-                    ></span>
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
+          {/* Dropdown Menu */}
+          {isSolutionsOpen && (
+            <div
+              className="absolute top-full left-0 mt-1 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden z-50 border border-gray-200 dark:border-gray-700"
+            >
+              {solutionsDropdownItems.map((sol, idx) => (
+                <a
+                  key={idx}
+                  href={sol.href}
+                  className="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-[#1E4A76] dark:hover:text-[#5A9AC5] transition-colors"
+                  onClick={(e) => {
+                    handleNavClick(e, sol.href, "solutions");
+                    setIsSolutionsOpen(false); // تغلق القائمة بنجاح بعد اختيار الحل
+                    if(isHomePage) {
+                      const el = document.getElementById("solutions");
+                      if(el) el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  {sol.label}
+                </a>
+              ))}
+            </div>
+          )}
+        </>
+      ) : (
+        <a
+          href={item.href}
+          onClick={(e) => {
+            if (item.onClick) {
+              item.onClick(e);
+            } else {
+              handleNavClick(e, item.href, item.key);
+            }
+          }}
+          className={`relative text-[19px] font-medium transition-colors duration-300 py-1 group ${
+            activeSection === item.key
+              ? "text-white"
+              : "text-white/80 hover:text-white"
+          }`}
+        >
+          {item.label}
+          <span
+            className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
+              activeSection === item.key
+                ? "w-full"
+                : "w-0 group-hover:w-full"
+            }`}
+          ></span>
+        </a>
+      )}
+    </div>
+  ))}
+</div>
 
           {/* Right Section */}
           <div className="flex items-center gap-3">
-            {/* زر Contact Us الأساسي منسق بالجانب الأيمن */}
-            <a
-              href="#contact"
-              className="hidden md:block bg-white text-[#1E4A76] px-9 py-3.5 rounded-md font-semibold text-[16px] hover:bg-gray-100 transition-all duration-300 hover:shadow-md"
+            {/* زر تسجيل الدخول */}
+            <button
+              onClick={() => navigate("/auth")}
+              className="hidden md:block text-white border border-white/40 hover:border-white px-6 py-2.5 rounded-md font-medium text-[16px] transition-all duration-300 mr-1"
             >
-              {t("nav.contact")}
-            </a>
+              {t("nav.login") === "nav.login" || !t("nav.login") ? "Login" : t("nav.login")}
+            </button>
+
+            {/* تم حذف زر Contact Us من هنا */}
 
             {/* Dark Mode Toggle */}
             <button
@@ -258,6 +292,20 @@ const Header = () => {
               )}
             </div>
 
+            {/* زِر الموبايل */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden p-2 text-white/80 hover:text-white rounded-lg hover:bg-white/10"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -269,7 +317,11 @@ const Header = () => {
                 key={item.key}
                 href={item.href}
                 onClick={(e) => {
-                  if (item.onClick) item.onClick(e);
+                  if (item.onClick) {
+                    item.onClick(e);
+                  } else {
+                    handleNavClick(e, item.href, item.key);
+                  }
                   setIsMenuOpen(false);
                 }}
                 className={`block py-2 transition-colors text-sm ${
@@ -279,13 +331,18 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="block mt-2 bg-white text-[#1E4A76] text-center px-4 py-1.5 rounded-md font-medium text-sm"
-              onClick={() => setIsMenuOpen(false)}
+
+            <button
+              onClick={() => {
+                navigate("/auth");
+                setIsMenuOpen(false);
+              }}
+              className="block w-full mt-2 border border-white/30 text-white text-center px-4 py-1.5 rounded-md font-medium text-sm hover:bg-white/10"
             >
-              {t("nav.contact")}
-            </a>
+              {t("nav.login") === "nav.login" || !t("nav.login") ? "Login" : t("nav.login")}
+            </button>
+
+            {/* تم حذف زر Contact من قائمة الموبايل هنا */}
           </div>
         )}
       </nav>
